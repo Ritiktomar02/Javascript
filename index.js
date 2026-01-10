@@ -1,2 +1,5 @@
-let a=9;
-let b=3;
+let pTag=document.createElement("p");
+pTag.textContent="Hello ji kaise ho"
+console.log(pTag)
+document.querySelector("body").prepend(pTag)
+
