@@ -4,11 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        form{
+            padding: 10px;
+            margin:20px;
+            border-style: solid;
+        }
+        input{
+            display: block;
+            padding: 5px;
+            margin-top: 4px;
+        }
+        button{
+            margin: 7px;
+        }
+        div{
+            border-style: solid;
+            max-width: fit-content;
+            margin:20px;
+            border-radius: 5px;
+        }
+        p{
+            margin:5px
+        }
+
+    </style>
 </head>
-<body >
-    <h1 >Hello</h1>
-     <h1 >Helo</h1>
-     <script src="index.js" defer></script>
+<body>
+    <form class="formtag">
+        <input type="text" placeholder="Enter your name" id="first"/>
+        <input type="email" placeholder="Enter email" />
+        <input type="text" placeholder="Enter your description "/>
+        <input type="number" placeholder="Enter age" />
+        <button>Submit</button>
+    </form>
+
+    <!-- <div>
+        <p>Name: Ritik Tomar</p>
+        <p>email: ritiktomar0209@gmail.com</p>
+        <p>description: asfdsagvladsfvasdf</p>
+        <p>age: 22</p>
+    </div> -->
+    
+    <script src="index.js"></script>
 </body>
 </html>
