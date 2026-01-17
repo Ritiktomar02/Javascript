@@ -1,43 +1,81 @@
-let input = document.querySelectorAll("input");
-let nameinput = input[0];
-let email = input[1];
-let password = input[2];
-let form = document.querySelector("form");
+const data = [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Vue.js",
+  "Angular",
+  "HTML",
+  "CSS",
+  "Tailwind CSS",
+  "Bootstrap",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "PostgreSQL",
+  "MySQL",
+  "Firebase",
+  "Supabase",
+  "REST API",
+  "GraphQL",
+  "JWT Authentication",
+  "OAuth",
+  "Socket.IO",
+  "WebSockets",
+  "Redis",
+  "Docker",
+  "Kubernetes",
+  "AWS",
+  "Azure",
+  "Google Cloud",
+  "Linux",
+  "Git",
+  "GitHub",
+  "CI/CD",
+  "Jenkins",
+  "System Design",
+  "Data Structures",
+  "Algorithms",
+  "LeetCode",
+  "GeeksForGeeks",
+  "C",
+  "C++",
+  "Java",
+  "Python",
+  "Django",
+  "Flask",
+  "FastAPI",
+  "Machine Learning",
+  "Deep Learning",
+  "AI",
+  "OpenAI API",
+  "Microservices"
+];
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+const list = document.querySelector("#list");
 
-  const nameRegex = /^[A-Za-z ]{2,}$/;
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+function renderItems(items) {
+  list.innerHTML = ""; // clear old UI
 
-  let validName = nameRegex.test(nameinput.value);
-  let validEmail = emailRegex.test(email.value);
-  let validPassword = passwordRegex.test(password.value);
+  items.forEach((item) => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.textContent = item;
+    list.appendChild(div);
+  });
+}
+renderItems(data);
 
-  document.querySelector("#name").style.display = "none";
-  document.querySelector("#email").style.display = "none";
-  document.querySelector("#password").style.display = "none";
 
-  if (!validName) {
-    document.querySelector("#name").style.display = "block";
-    document.querySelector("#name").textContent = "User name is not correct";
-  }
+let inputText = document.querySelector("input");
 
-  if (!validEmail) {
-    document.querySelector("#email").style.display = "block";
-    document.querySelector("#email").textContent = "Email is not correct";
-  }
+inputText.addEventListener("input", (e) => {
+  let searchValue = e.target.value.toLowerCase();
 
-  if (!validPassword) {
-    document.querySelector("#password").style.display = "block";
-    document.querySelector("#password").textContent = "Password is not correct";
-  }
+  const filteredData = data.filter((item) =>
+    item.toLowerCase().includes(searchValue)
+  );
 
-  if (validName && validEmail && validPassword) {
-    let p = document.createElement("p");
-    p.textContent = "Everything is fine";
-    document.querySelector(".container").appendChild(p);
-  }
+  renderItems(filteredData);
 });
+
